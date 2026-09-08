@@ -8,6 +8,7 @@ def test_health():
 
     assert response.status_code == 200
     assert response.get_json()["status"] == "UP"
+    assert response.get_json()["service"] == "payment-service"
 def test_version():
     response = client.get("/version")
 

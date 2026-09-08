@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route("/health")
 def health():
-    return {"status": "UP"}
+    return {"status": "UP",
+            "service": "payment-service"}
 
 
 @app.route("/version")
