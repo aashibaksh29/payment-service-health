@@ -1,1 +1,1 @@
-Payment service API version: 1.0.0
+Payment service API version: 1.1.0
