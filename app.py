@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask , render_template
 import os
 
 app = Flask(__name__)
@@ -16,6 +16,10 @@ def version():
 @app.route("/environment")
 def environment():
     return {"environment": os.getenv("ENVIRONMENT", "development")}
+
+@app.route("/")
+def dashboard():
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)

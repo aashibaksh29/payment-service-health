@@ -24,3 +24,20 @@ The project demonstrates an end-to-end Git-to-deployment workflow including:
 
 ```text
 GET /health
+
+
+
+## Dashboard
+
+The project includes a simple web-based dashboard that displays:
+
+- Service status
+- Application version
+- Current environment
+
+Open the dashboard at:
+
+http://localhost:5001/
+
+The dashboard retrieves information from the `/health`, `/version`,
+and `/environment` API endpoints.
