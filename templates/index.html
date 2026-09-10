@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Service Health Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Payment Service Health Dashboard</h1>
+
+    <div class="card">
+        <h2>Service Status</h2>
+        <p id="health">Checking...</p>
+    </div>
+
+    <div class="card">
+        <h2>Version</h2>
+        <p id="version">Loading...</p>
+    </div>
+
+    <div class="card">
+        <h2>Environment</h2>
+        <p id="environment">Loading...</p>
+    </div>
+
+    <script>
+        fetch("/health")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("health").innerText =
+                    data.status + " - " + data.service;
+            });
+
+        fetch("/version")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("version").innerText =
+                    data.version;
+            });
+
+        fetch("/environment")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("environment").innerText =
+                    data.environment;
+            });
+    </script>
+
+</body>
+</html>
